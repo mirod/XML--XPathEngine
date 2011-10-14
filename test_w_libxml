@@ -1,0 +1,27 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+ 
+use XML::LibXML;
+
+my $parser = XML::LibXML->new();
+my $doc = $parser->parse_file( "test_doc.xml");
+
+my @exp= <DATA>;
+
+foreach my $exp (@exp)
+  { chomp $exp;
+    my $res= $doc->findvalue( $exp);
+    print "'$exp' : ";
+    if( length( $res) > 60) { print "\n"; }
+    print $res, "\n";
+  }
+__DATA__
+id("i3")/@att1
+substring-after(//kid1[1]/@att1, "v")
+id("i3")//*[1]/@att2
+(id("i3")//*)[1]/@att2
+substring-after((id("i3")//*[1])/@att2, "v")
+
+      
