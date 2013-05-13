@@ -1169,7 +1169,7 @@ L<HTML::TreeBuilder::XPath>, L<XML::Twig::XPath> for exemples of using this modu
 
 L<Tree::XPathEngine> for a similar module for non-XML trees.
 
-L<http://www.xmltwig.com/article/extending_xml_xpath/ > for background 
+L<http://www.xmltwig.com/article/extending_xml_xpath/> for background 
 information. The last section of the article summarizes how to reuse XML::XPath.
 As XML::XPathEngine offers the same API it should help you
 

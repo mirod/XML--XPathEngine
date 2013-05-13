@@ -1,5 +1,8 @@
 Revision history for XML::XPathEngine
 
+version 0.14
+fixed   POD error
+
 version 0.13
 added:  error, with (hopefully!) proper error message when trying to
         follow XML axes from a litteral, see 
