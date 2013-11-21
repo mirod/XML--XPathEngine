@@ -11,6 +11,16 @@ WriteMakefile(
     PREREQ_PM => {
         'Test::More' => 0,
     },
+    META_MERGE => {
+        'meta-spec' => { version => 2 },
+        resources => {
+            repository => {
+                type => 'git',
+                url  => 'https://github.com/mirod/XML--XPathEngine.git',
+                web  => 'https://github.com/mirod/XML--XPathEngine',
+            },
+        },
+    },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'XML-XPathEngine-*' },
 );
