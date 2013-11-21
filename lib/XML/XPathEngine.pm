@@ -272,7 +272,7 @@ sub _tokenize {
     
     # Bug: We don't allow "'@' NodeType" which is in the grammar, but I think is just plain stupid.
 
-    my $expected=''; # used to desambiguate conflicts (for REs)
+    my $expected=''; # used to disambiguate conflicts (for REs)
 
     while( length($path))
       { my $token='';
@@ -1165,7 +1165,7 @@ backslashed), the C<imsx> modifiers can be used.
 
 L<XML::XPath>
 
-L<HTML::TreeBuilder::XPath>, L<XML::Twig::XPath> for exemples of using this module
+L<HTML::TreeBuilder::XPath>, L<XML::Twig::XPath> for examples of using this module
 
 L<Tree::XPathEngine> for a similar module for non-XML trees.
 
