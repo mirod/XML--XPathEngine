@@ -626,9 +626,9 @@ sub _primary_expr {
     elsif (_match($self, $tokens, "$REGEXP_RE$REGEXP_MOD_RE?")) {
         # new Literal with $self->{_curr_match} turned into a regexp... 
         my( $regexp, $mod)= $self->{_curr_match} =~  m{($REGEXP_RE)($REGEXP_MOD_RE?)};
-        $regexp=~ s{^m?s*/}{};
+        $regexp=~ s{^m?/}{};
         $regexp=~ s{/$}{};                        
-        if( $mod) { $regexp=~ "(?$mod:$regexp)"; } # move the mods inside the regexp
+        if( $mod) { $regexp= "(?$mod:$regexp)"; } # move the mods inside the regexp
         $expr->set_lhs(XML::XPathEngine::Literal->new($regexp));
     }
     elsif (_match($self, $tokens, $NUMBER_RE)) {
