@@ -122,13 +122,13 @@ sub findnodes_as_string {
     
 
     if ($results->isa('XML::XPathEngine::NodeSet')) {
-        return join '', map { $_->toString } $results->get_nodelist;
+        return join '', map { $_->getValue } $results->get_nodelist;
     }
     elsif ($results->isa('XML::XPathEngine::Boolean')) {
         return ''; # to behave like XML::LibXML
     }
     elsif ($results->isa('XML::XPathEngine::Node')) {
-        return $results->toString;
+        return $results->getValue;
     }
     else {
         return _xml_escape_text($results->value);
