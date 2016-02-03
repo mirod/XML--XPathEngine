@@ -285,6 +285,21 @@ sub normalize_space {
     return XML::XPathEngine::Literal->new($str);
 }
 
+sub lower_case {
+    my $self = shift;
+    my ($node, @params) = @_;
+    die "lower-case: Wrong number of params\n" if @params > 1;
+    my $str;
+    if (@params) {
+        $str = $params[0]->string_value;
+    }
+    else {
+        $str = $node->string_value;
+    }
+    $str = lc $str;
+    return XML::XPathEngine::Literal->new($str);
+}
+
 sub translate {
     my $self = shift;
     my ($node, @params) = @_;
