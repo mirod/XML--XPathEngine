@@ -300,6 +300,21 @@ sub lower_case {
     return XML::XPathEngine::Literal->new($str);
 }
 
+sub upper_case {
+    my $self = shift;
+    my ($node, @params) = @_;
+    die "lower-case: Wrong number of params\n" if @params > 1;
+    my $str;
+    if (@params) {
+        $str = $params[0]->string_value;
+    }
+    else {
+        $str = $node->string_value;
+    }
+    $str = uc $str;
+    return XML::XPathEngine::Literal->new($str);
+}
+
 sub translate {
     my $self = shift;
     my ($node, @params) = @_;
