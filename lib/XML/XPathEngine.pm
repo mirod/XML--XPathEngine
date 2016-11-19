@@ -122,13 +122,13 @@ sub findnodes_as_string {
     
 
     if ($results->isa('XML::XPathEngine::NodeSet')) {
-        return join '', map { $_->toString } $results->get_nodelist;
+        return join '', map { $_->getValue } $results->get_nodelist;
     }
     elsif ($results->isa('XML::XPathEngine::Boolean')) {
         return ''; # to behave like XML::LibXML
     }
     elsif ($results->isa('XML::XPathEngine::Node')) {
-        return $results->toString;
+        return $results->getValue;
     }
     else {
         return _xml_escape_text($results->value);
@@ -626,9 +626,9 @@ sub _primary_expr {
     elsif (_match($self, $tokens, "$REGEXP_RE$REGEXP_MOD_RE?")) {
         # new Literal with $self->{_curr_match} turned into a regexp... 
         my( $regexp, $mod)= $self->{_curr_match} =~  m{($REGEXP_RE)($REGEXP_MOD_RE?)};
-        $regexp=~ s{^m?s*/}{};
+        $regexp=~ s{^m?/}{};
         $regexp=~ s{/$}{};                        
-        if( $mod) { $regexp=~ "(?$mod:$regexp)"; } # move the mods inside the regexp
+        if( $mod) { $regexp= "(?$mod:$regexp)"; } # move the mods inside the regexp
         $expr->set_lhs(XML::XPathEngine::Literal->new($regexp));
     }
     elsif (_match($self, $tokens, $NUMBER_RE)) {
