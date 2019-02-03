@@ -1014,7 +1014,7 @@ Matt Sergeant. I only removed the XML processing part to remove the dependency
 on XML::Parser, applied a couple of patches, renamed a whole lot of methods
 to make Pod::Coverage happy, and changed the docs.
 
-The article eXtending XML XPath, http://www.xmltwig.com/article/extending_xml_xpath/
+The article eXtending XML XPath, http://www.xmltwig.org/article/extending_xml_xpath/
 should give authors who want to use this module enough background to do so.
 
 Otherwise, my email is below ;--)
@@ -1169,7 +1169,7 @@ L<HTML::TreeBuilder::XPath>, L<XML::Twig::XPath> for examples of using this modu
 
 L<Tree::XPathEngine> for a similar module for non-XML trees.
 
-L<http://www.xmltwig.com/article/extending_xml_xpath/> for background 
+L<http://www.xmltwig.org/article/extending_xml_xpath/> for background 
 information. The last section of the article summarizes how to reuse XML::XPath.
 As XML::XPathEngine offers the same API it should help you
 
